@@ -1,0 +1,59 @@
+<odoo>
+  <data>
+    <!-- explicit  myview definition -->
+        <!-- actions opening views on models -->
+
+
+<record id="hospital_patient_action_main_tree" model="ir.actions.act_window">
+ <field name="name">Patients</field>
+ <field name="res_model">product_waste_code.product_waste_code</field>
+ <field name="view_mode">list,form</field>
+ <field name="help" type="html">
+  <p class="o_view_nocontent_smiling_face">No patients found. Let's create one!</p>
+  <p>To get things done, use activities and status on patients.</p>
+ </field>
+</record> 
+
+<record id="myview_form" model="ir.ui.view">
+  <field name="name">WasteCode.view</field>
+  <field name="model">product_waste_code.product_waste_code</field>
+  <field name="arch" type="xml">
+  <form string="Case Upload">
+
+<header>
+   <field name="state" widget="statusbar" statusbar_visible="draft,in_review,rejected,final"/>
+</header>
+  <sheet>
+    <group  col="2">
+          <field name="chapter_label"/>
+          <field name="subchapter1_label"/>
+          <field name="subchapter2_label"/>
+
+          <field name="chapter" readonly="0" />
+          <field name="subchapter1"/>
+          <field name="subchapter2"/>
+    </group>
+        <group>
+          <field name="chapter"/>
+          <field name="subchapter1"/>
+          <field name="subchapter2"/>
+          <field name="company_info"/>
+          <field name="display_info"/>
+    </group>
+  </sheet>
+
+    
+    </form>
+  </field>
+</record> 
+    
+    
+    <menuitem id="menu_hospital_patient_root" name="Hospital Management" sequence="3"/>
+
+    <menuitem id="menu_hospita_menu" name="Hospital" sequence="3" parent="product_waste_code.menu_root"/>
+    <menuitem id="menu_patient_menu" name="Patients" action="hospital_patient_action_main_tree" sequence="3" parent="menu_hospita_menu"/>
+
+    
+
+  </data>
+</odoo>

@@ -1,0 +1,42 @@
+<odoo>
+    <!-- Demo ISO Standards -->
+    <record id="iso_standard_1" model="iso.standard">
+        <field name="name">ISO 9001</field>
+        <field name="code">ISO9001</field>
+        <field name="description">Quality management systems</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+
+    <record id="iso_standard_2" model="iso.standard">
+        <field name="name">ISO 14001</field>
+        <field name="code">ISO14001</field>
+        <field name="description">Environmental management systems</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+
+    <record id="iso_standard_3" model="iso.standard">
+        <field name="name">ISO 45001</field>
+        <field name="code">ISO45001</field>
+        <field name="description">Occupational health and safety management systems</field>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+
+    <!-- Demo Products -->
+    <record id="product_1" model="product.template">
+        <field name="name">Product A</field>
+        <field name="iso_standard_ids" eval="[(6, 0, [ref('iso_standard_1'), ref('iso_standard_2')])]"/>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+
+    <record id="product_2" model="product.template">
+        <field name="name">Product B</field>
+        <field name="iso_standard_ids" eval="[(6, 0, [ref('iso_standard_2'), ref('iso_standard_3')])]"/>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+
+    <record id="product_3" model="product.template">
+        <field name="name">Product C</field>
+        <field name="iso_standard_ids" eval="[(6, 0, [ref('iso_standard_1'), ref('iso_standard_3')])]"/>
+        <field name="company_id" ref="base.main_company"/>
+    </record>
+</odoo>

@@ -1,0 +1,48 @@
+<odoo>
+    <data>
+          <record id="01" model="product_waste_code.product_waste_code">
+            <field name="name">wastes Resulting from Exploration, Mining, Quarrying, and Physical and Chemical Treatment of Minerals</field>
+            <field name="title">wastes Resulting from Exploration, Mining, Quarrying, and Physical and Chemical Treatment of Minerals</field>
+            <field name="chapter">01</field>
+            <field name="subchapter1"></field>
+            <field name="subchapter2"></field>
+            <field name="value">01</field>
+            <field name="state">in_review</field>
+            <field name="active">True</field>
+          </record>
+
+          <record id="0101" model="product_waste_code.product_waste_code">
+            <field name="name">wastes from mineral excavation</field>
+            <field name="title">wastes from mineral excavation</field>
+            <field name="chapter">01</field>
+            <field name="subchapter1">01</field>
+            <field name="subchapter2"></field>
+            <field name="value">01</field>
+            <field name="state">in_review</field>
+            <field name="active">True</field>
+          </record>
+          
+          
+          <record id="010101" model="product_waste_code.product_waste_code">
+            <field name="name">wastes from mineral metalliferous excavation</field>
+            <field name="title">wastes from mineral metalliferous excavation</field>
+            <field name="chapter">01</field>
+            <field name="subchapter1">01</field>
+            <field name="subchapter2">01</field>
+            <field name="value">01</field>
+            <field name="state">in_review</field>
+            <field name="active">True</field>
+          </record>
+          
+          <record id="010101" model="product_waste_code.product_waste_code">
+            <field name="name">wastes from mineral non-metalliferous excavation</field>
+            <field name="title">wastes from mineral non-metalliferous excavation</field>
+            <field name="chapter">01</field>
+            <field name="subchapter1">01</field>
+            <field name="subchapter2">02</field>
+            <field name="value">01</field>
+            <field name="state">in_review</field>
+            <field name="active">True</field>
+          </record>
+    </data>
+</odoo>

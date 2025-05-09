@@ -1,0 +1,78 @@
+<odoo>
+    <data>
+    <!-- explicit  form definition -->
+    <record id="view_product_waste_code_form" model="ir.ui.view">
+        <field name="name">product.waste.code.form</field>
+        <field name="model">product_waste_code.product_waste_code</field>
+        <field name="arch" type="xml">
+            <form string="Product Waste Code">
+                <sheet>
+                    <group>
+                        <field name="title"/>
+                        <field name="chapter"/>
+                        <field name="subchapter1"/>
+                        <field name="subchapter2"/>
+                        <field name="description"/>
+                        <field name="examples"/>
+                        <field name="info"/>
+                        <field name="company_info"/>
+                        <field name="display_info"/>
+                        <field name="state"/>
+                        <field name="name"/>
+                        <field name="sequence"/>
+                        <field name="value"/>
+                        <field name="value2"/>
+                        <field name="chapter_title"/>
+                        <field name="chapter_label"/>
+                        <field name="subchapter1_label"/>
+                        <field name="subchapter2_label"/>
+                        <field name="subchapter1_title"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- search  view definition -->
+    <record id="view_product_waste_code_search" model="ir.ui.view">
+        <field name="name">product.waste.code.search</field>
+        <field name="model">product_waste_code.product_waste_code</field>
+        <field name="arch" type="xml">
+            <search string="Product Waste Code">
+                <field name="title"/>
+                <field name="chapter"/>
+                <field name="subchapter1"/>
+                <field name="subchapter2"/>
+                <field name="description"/>
+                <field name="state"/>
+                <field name="name"/>
+                <field name="sequence"/>
+                <field name="value"/>
+                <field name="value2"/>
+                <field name="chapter_title"/>
+                <field name="chapter_label"/>
+                <field name="subchapter1_label"/>
+                <field name="subchapter2_label"/>
+                <field name="subchapter1_title"/>
+                <field name="active"/>
+            </search>
+        </field>
+    </record>
+
+
+    
+    <!-- explicit  actions  definition -->
+    <record id="action_product_waste_code" model="ir.actions.act_window">
+        <field name="name">Product Waste Code</field>
+        <field name="res_model">product_waste_code.product_waste_code</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_product_waste_code_tree"/>
+    </record>
+
+    <!-- explicit  Menu definition -->
+    <menuitem id="menu_product_waste_code_root" name="Product Waste Code" sequence="10"/>
+    <menuitem id="menu_product_waste_code" name="Product Waste Code" parent="menu_product_waste_code_root" action="action_product_waste_code" sequence="10"/>
+
+    </data>
+</odoo>

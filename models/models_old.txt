@@ -1,0 +1,44 @@
+# -*- coding: utf-8 -*-
+
+from odoo import models, fields, api
+
+
+class product_waste_code(models.Model):
+    _name = 'product_waste_code.product_waste_code'
+    _order = 'sequence,id'
+    _description = 'product_waste_code.product_waste_code'
+
+    title = fields.Char(string='Title')
+    chapter = fields.Char(string='Chapter')
+    subchapter1 = fields.Char(string='Sub chapter 1')
+    subchapter2 = fields.Char(string='Sub chapter 2')
+    description = fields.Char(string='Description')
+    examples = fields.Text(string='Example')
+    info = fields.Text()
+    company_info = fields.Text(company_dependent=True)
+    company_id = fields.Many2one('res.company')
+    display_info = fields.Text(string='Infos', compute='_compute_display_info')
+    other_record_id = fields.Many2one('other.record', check_company=True)
+    name = fields.Char(string='Name')
+
+    sequence = fields.Integer(default=10)
+#    res_model = fields.Selection(related="plan_id.res_model")
+#    company_id = fields.Many2one(related='company_id')
+    value = fields.Integer()
+    value2 = fields.Float(compute="_value_pc", store=True)
+
+    # toggles the global visibility of the record, if active is set to False the record is invisible in most searches and listing.
+    active = fields.Boolean(default=True)
+
+    #note = fields.Html('Note', compute="_compute_note", store=True, readonly=False)
+
+    @api.depends_context('company')
+    def _compute_display_info(self):
+        for record in self:
+            record.display_info = record.info + record.company_info
+
+    @api.depends('value')
+    def _value_pc(self):
+        for record in self:
+            record.value2 = float(record.value) / 100
+

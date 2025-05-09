@@ -1,0 +1,74 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="product_waste_code.list">
+      <field name="name">product_waste_code list</field>
+      <field name="model">product_waste_code.product_waste_code</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="chapter"/>
+          <field name="subchapter1"/>
+          <field name="subchapter2"/>
+          <field name="title"/>
+          <field name="state"/>      
+          <field name="create_date"/>
+          <field name="create_uid"/>
+          <field name="write_date"/>
+          <field name="write_uid"/>
+          <!--field name="company_id" ref="main_company"/ -->
+        </list>
+      </field>
+    </record>
+
+
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="product_waste_code.action_window">
+      <field name="name">European Waste Code List</field>
+      <field name="res_model">product_waste_code.product_waste_code</field>
+      <field name="view_mode">list,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="product_waste_code.action_server">
+      <field name="name">product_waste_code server</field>
+      <field name="model_id" ref="model_product_waste_code_product_waste_code"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "list,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="European Waste Codes" id="product_waste_code.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="product_waste_code.menu_1" parent="product_waste_code.menu_root"/>
+    <menuitem name="Menu 2" id="product_waste_code.menu_2" parent="product_waste_code.menu_root"/>
+  
+
+    <!-- actions -->
+
+    <menuitem name="List" id="product_waste_code.menu_1_list" parent="product_waste_code.menu_1"
+              action="product_waste_code.action_window"/>
+
+    <menuitem name="Server to list" id="product_waste_code" parent="product_waste_code.menu_2"
+              action="product_waste_code.action_server"/>
+    
+    <!-- menuitem name="Measurement Sheets" id="cirem_measurements" parent="product_waste_code.menu_root" action="action_measurements" sequence="540"/ -->
+
+
+  </data>
+</odoo>
